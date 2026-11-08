@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "assignees": ["JoshuaCrump"],
+  "labels": ["dependencies"],
+  "dependencyDashboardLabels": ["dependencies"],
+  "schedule": ["before 8am on monday"],
+  "git-submodules": { "enabled": true },
+  "packageRules": [
+    {
+      "description": "The Hugo image in compose.yaml and .gitlab-ci.yml moves together. Also update Cloudflare's HUGO_VERSION (Production and Preview).",
+      "matchPackageNames": ["ghcr.io/gohugoio/hugo"],
+      "groupName": "hugo"
+    },
+    {
+      "description": "Hextra: read its release notes, then build before merging.",
+      "matchManagers": ["git-submodules"],
+      "automerge": false
+    }
+  ]
+}

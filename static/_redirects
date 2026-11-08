@@ -1,0 +1,4 @@
+# The app's update feed (crates/branchbooks-ui/src/update.rs in the app repository). Each file the
+# updater asks for is forwarded to the newest release's copy on GitLab, so moving hosts changes this
+# line, not the installed apps.
+/updates/* https://gitlab.com/branchbooks/branchbooks/-/releases/permalink/latest/downloads/:splat 302

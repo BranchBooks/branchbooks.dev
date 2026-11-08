@@ -1,0 +1,26 @@
+services:
+  app:
+    image: ghcr.io/gohugoio/hugo:v0.169.0
+    # Only this computer can open the preview, not the rest of the network.
+    ports:
+      - 127.0.0.1:1313:1313
+    # The preview needs no extra privileges or Linux capabilities.
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    command: >
+      server
+      --bind 0.0.0.0
+      --buildDrafts
+      --buildFuture
+      --disableFastRender
+      --poll 1s
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:1313"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    volumes:
+      - ./:/project

@@ -1,0 +1,36 @@
+# Build check for the site, on merge requests and main. Cloudflare Pages builds and deploys it, from the
+# GitHub mirror of main.
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+# GitLab's scanners, in the test stage: secret detection, SAST (Semgrep, for the site's own scripts and
+# templates) and IaC scanning (KICS, which reads compose.yaml). Findings show on the merge request and in
+# the vulnerability report. The site has no lockfile, so there is no dependency scanning. These images are
+# GitLab's, versioned by the templates rather than pinned here.
+include:
+  - template: Jobs/Secret-Detection.gitlab-ci.yml
+  - template: Jobs/SAST.gitlab-ci.yml
+  - template: Jobs/SAST-IaC.gitlab-ci.yml
+
+variables:
+  # Run the scanners in merge request pipelines too, not only on branches.
+  AST_ENABLE_MR_PIPELINES: "true"
+
+hugo:
+  # Same image and tag as compose.yaml, so Renovate bumps both together. It runs as a user that can't
+  # write to the checkout, hence root.
+  image:
+    name: ghcr.io/gohugoio/hugo:v0.169.0
+    entrypoint: [""]
+    docker:
+      user: root
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  timeout: 5m
+  script:
+    - hugo --minify
+    # The update feed's forwarding rule reaches the built site, where Cloudflare reads it.
+    - grep -q '^/updates/\*' public/_redirects

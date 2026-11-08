@@ -1,0 +1,78 @@
+baseURL = "https://branchbooks.dev/"
+locale = "en-US"
+title = "BranchBooks"
+theme = "hextra"
+
+enableRobotsTXT = true
+# No tag or category pages: the site has none.
+disableKinds = ["taxonomy", "term"]
+
+[outputs]
+  home = ["html", "llms"]
+  page = ["html"]
+  section = ["html", "rss"]
+
+[markup.goldmark.renderer]
+  unsafe = true # Hextra's landing-page shortcodes use inline HTML.
+
+[markup.highlight]
+  noClasses = false
+
+[params]
+  description = "Double-entry accounting with envelope and target budgeting, on a plain-text ledger in git. Installed on your device, no account."
+  images = ["images/social-preview.png"]
+  externalLinkDecoration = true
+
+  [params.navbar]
+    displayTitle = false
+    displayLogo = true
+    [params.navbar.logo]
+      path = "images/wordmark.svg"
+      dark = "images/wordmark-dark.svg"
+      link = "/"
+      width = 164
+      height = 32
+
+  [params.theme]
+    default = "system"
+    displayToggle = true
+
+  [params.page]
+    width = "normal"
+
+  [params.footer]
+    displayCopyright = true
+    displayPoweredBy = false
+
+  [params.editURL]
+    enable = true
+    base = "https://gitlab.com/branchbooks/branchbooks.dev/-/edit/main/content"
+
+  [params.search]
+    enable = true
+    type = "flexsearch"
+    [params.search.flexsearch]
+      index = "content"
+
+[[menu.main]]
+  name = "Docs"
+  pageRef = "/docs"
+  weight = 1
+
+[[menu.main]]
+  name = "Brand"
+  pageRef = "/brand"
+  weight = 2
+
+[[menu.main]]
+  name = "Search"
+  weight = 3
+  [menu.main.params]
+    type = "search"
+
+[[menu.main]]
+  name = "GitLab"
+  url = "https://gitlab.com/branchbooks/branchbooks"
+  weight = 4
+  [menu.main.params]
+    icon = "gitlab"
