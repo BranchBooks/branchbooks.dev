@@ -1,5 +1,5 @@
-# Build check for the site, on merge requests and main. Cloudflare Pages builds and deploys it, from the
-# GitHub mirror of main.
+# Build check for the site, on merge requests and main. Cloudflare Pages, connected to this project,
+# builds and deploys main.
 
 workflow:
   rules:

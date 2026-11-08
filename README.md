@@ -49,8 +49,8 @@ The site runs at <http://localhost:1313>.
 
 ## Deployment
 
-Cloudflare Pages builds from `main`, and builds a preview for each pull request. Its settings live in
-the Cloudflare dashboard, not this repo:
+Cloudflare Pages, connected to this GitLab project, builds and deploys `main`. Its settings live in the
+Cloudflare dashboard, not this repo:
 
 | Setting | Value |
 | --- | --- |
@@ -59,8 +59,7 @@ the Cloudflare dashboard, not this repo:
 | Env var | `HUGO_VERSION` = `0.169.0`, set in **both** the Production and Preview environments |
 
 CI (`.gitlab-ci.yml`) runs the same build on every merge request, with GitLab's secret detection, SAST and IaC
-scanning. Cloudflare Pages deploys from the
-GitHub mirror of `main` (BranchBooks/branchbooks.dev), which GitLab pushes to.
+scanning. GitHub has a read-only mirror of `main` (BranchBooks/branchbooks.dev), which GitLab pushes to.
 
 ## Upgrading
 
