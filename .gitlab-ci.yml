@@ -23,7 +23,7 @@ hugo:
   # Same image and tag as compose.yaml, so Renovate bumps both together. It runs as a user that can't
   # write to the checkout, hence root.
   image:
-    name: ghcr.io/gohugoio/hugo:v0.169.0
+    name: ghcr.io/gohugoio/hugo:v0.170.0
     entrypoint: [""]
     docker:
       user: root

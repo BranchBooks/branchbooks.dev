@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/gohugoio/hugo:v0.169.0
+    image: ghcr.io/gohugoio/hugo:v0.170.0
     # Only this computer can open the preview, not the rest of the network.
     ports:
       - 127.0.0.1:1313:1313
