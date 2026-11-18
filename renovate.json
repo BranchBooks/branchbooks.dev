@@ -5,7 +5,7 @@
   "platformCommit": "enabled",
   "assignees": ["JoshuaCrump"],
   "labels": ["dependencies"],
-  "dependencyDashboardLabels": ["dependencies"],
+  "dependencyDashboard": { "labels": ["dependencies"] },
   "schedule": ["before 8am on monday"],
   "git-submodules": { "enabled": true },
   "packageRules": [
