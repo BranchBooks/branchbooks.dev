@@ -30,7 +30,8 @@ the release's checksum.
 **Restart to update** then appears beside the book switcher: it closes the app, installs the update, and opens
 the app again. If BranchBooks is installed for all users, Windows asks for an administrator first; say no and
 nothing changes. If you ignore the button, it's back the next time you open the app. Offline, the app just runs
-as it is. To check again without restarting, use **Check for updates** in [Settings](settings).
+as it is. To check again without restarting, use **Check for updates** in [Settings](settings.md), where you can
+also turn off the check at start.
 
 That check is the only network traffic BranchBooks makes apart from syncing your books with the remote you
 chose, and it carries nothing about you or your books.

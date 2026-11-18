@@ -7,7 +7,7 @@ Open **Settings** from the foot of the sidebar.
 
 ## This book
 
-The book's name, its remote and access token (see [Sync](sync)), and who its changes are recorded as.
+The book's name, its remote and access token (see [Sync](sync.md)), and who its changes are recorded as.
 Leave the name and email blank to use git's own identity on this computer.
 
 **Replace the remote with this book** is for a book whose history has split from the remote's.
@@ -18,10 +18,17 @@ Leave the name and email blank to use git's own identity on this computer.
 **Match Windows**, **Light** or **Dark**. The choice is kept on this device and doesn't sync with your
 books.
 
+## Currencies
+
+The currencies offered when an account or a new book names its currency, besides the book's own and the
+ones its accounts use. Type a code, such as EUR, and choose **Add currency**; **Remove** takes one off the
+list. The list is kept on this device. A new book starts in USD unless you choose another.
+
 ## Updates and about
 
 The version you're running, and **Check for updates**. When an update has downloaded, the button
-becomes **Restart to update**. Links go to this website, what's new, reporting a problem, the licence
+becomes **Restart to update**. **Check for updates when BranchBooks starts** is on unless you turn it
+off; **Check for updates** works either way. Links go to this website, what's new, reporting a problem, the licence
 and the trademark policy.
 
 ## Data and backups

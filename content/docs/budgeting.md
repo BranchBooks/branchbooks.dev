@@ -16,7 +16,7 @@ from what you have.
 
 ## Which accounts count
 
-Accounts are on or off budget, set by the kind you choose when you [add one](accounts) and changed with
+Accounts are on or off budget, set by the kind you choose when you [add one](accounts.md) and changed with
 **Edit**. Checking, savings you spend from, and credit cards are usually
 on budget. Brokerage and retirement accounts are usually off budget. Money moving from an off-budget account
 into an on-budget one counts as income.

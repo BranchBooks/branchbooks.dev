@@ -66,7 +66,7 @@ target 8WQ4C6T1PB
   due: 2026-06-01
 ```
 
-See [Loans](loans) for the `loan` block.
+See [Loans](loans.md) for the `loan` block.
 
 ## Every change is a commit
 
@@ -81,6 +81,6 @@ it.
 
 ## Coming from Beancount
 
-Beancount files come in through an import (**Files**, or a [GnuCash](gnucash) file), which writes them in this
+Beancount files come in through an import (**Files**, or a [GnuCash](gnucash.md) file), which writes them in this
 format. Some Beancount syntax isn't read yet, such as `pad`, costs and prices on postings, and `pushtag`; the
 import reports it as an error and never miscounts.

@@ -8,7 +8,7 @@ control decides who can read it. There is no BranchBooks server or account.
 
 ## Setting up
 
-In [Settings](settings), under **This book**, give the remote's HTTPS address and an access token from
+In [Settings](settings.md), under **This book**, give the remote's HTTPS address and an access token from
 your git host. The
 token is kept in Windows Credential Manager, never in a file, and is only ever sent to that remote's
 host over HTTPS.
