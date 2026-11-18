@@ -2,3 +2,6 @@
 # updater asks for is forwarded to the newest release's copy on GitLab, so moving hosts changes this
 # line, not the installed apps.
 /updates/* https://gitlab.com/branchbooks/branchbooks/-/releases/permalink/latest/downloads/:splat 302
+
+# The privacy statement was on a code signing policy page.
+/code-signing/ /privacy/ 301

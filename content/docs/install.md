@@ -20,7 +20,7 @@ install.
 > [!NOTE]
 > The app isn't code-signed yet, so Microsoft Defender SmartScreen may say it is unrecognized the first
 > time you open it. If you downloaded it from the BranchBooks repository, choose **More info**, then
-> **Run anyway**. See the [code signing policy](/code-signing/).
+> **Run anyway**.
 
 ## Updates
 
