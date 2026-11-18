@@ -29,14 +29,20 @@ Scenarios and closed months sync too.
 
 ## When it stops
 
+When both sides changed the same file, the changes are merged entry by entry: entries added on both
+devices are all kept, and an entry changed on only one side takes that change.
+
 Sync stops without pushing anything, and keeps your local changes, when:
 
-- both sides changed the same lines of a file,
+- both sides changed the same entry differently,
 - the merge would add ledger errors, or
 - the book's files have changes made outside BranchBooks that aren't saved yet.
 
-There's no automatic conflict resolution. If two devices added entries at the same spot, change one
-side so they no longer overlap, then sync again.
+## Choosing between changes
+
+When both devices changed the same entry, BranchBooks shows each one, this device's version beside the
+remote's. Choose which to keep for each (this device's is chosen to start), or keep all of one side's, then
+**Merge and sync**. Nothing is chosen for you: **Not now** leaves both as they are.
 
 ## Replacing the remote
 

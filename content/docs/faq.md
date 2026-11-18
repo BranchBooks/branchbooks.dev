@@ -30,6 +30,10 @@ A book budgets in one currency. Accounts in other currencies are kept off budget
 
 An Android app is planned.
 
+## How do I contact the project?
+
+Write to [hello@branchbooks.dev](mailto:hello@branchbooks.dev).
+
 ## How do I report a problem?
 
 Open an issue on [GitLab](https://gitlab.com/branchbooks/branchbooks/-/issues). Report security problems

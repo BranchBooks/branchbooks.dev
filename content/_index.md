@@ -52,7 +52,7 @@ toc: false
   {{< hextra/feature-card
     title="Plain text you own"
     icon="document-text"
-    subtitle="Books are Beancount-compatible text files, so they open in Beancount and Fava and in any text editor."
+    subtitle="Books are readable text files in any editor, with every change a git commit. Import from Beancount or GnuCash."
   >}}
   {{< hextra/feature-card
     title="No account, no server"

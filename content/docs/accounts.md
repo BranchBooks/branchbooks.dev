@@ -7,7 +7,7 @@ The **Accounts** page lists every account and category with its balance, and is 
 
 ## Adding an account
 
-Choose **Add account**, then:
+Choose **Add an account or category**, then:
 
 1. **Pick what kind it is.** The kind decides where it goes in your books and how the budget treats it:
 
@@ -23,8 +23,8 @@ Choose **Add account**, then:
    **More…** lets you choose the type and budget setting yourself, for example to add a placeholder or
    an excluded category.
 2. **Type a name in plain words**, such as "Chase Visa". The form shows what it will be saved as:
-   `Liabilities:Chase-Visa`. Names are written without spaces in the file, and shown with them.
-3. **Inside** (optional) puts it under an existing parent, such as Food for a "Dining" category. It
+   `Liabilities:Chase Visa`.
+3. **Under** (optional) puts it under an existing parent, such as Food for a "Dining" category. It
    suggests the parents you already have.
 4. **Opened** is the date it starts.
 5. For an account, **Balance today** (or **Owed today** for a card or loan) starts it with that
@@ -49,8 +49,7 @@ to fold it; Equity starts folded. Parents fold their sub-accounts with ▾.
 
 Badges mark the less usual budget settings: **off budget**, **excluded** and **placeholder**.
 
-Click an account's name to see its transactions. Its **⋯** menu, which shows when you point at or tab
-to the row, has the rest:
+Click an account's name to see its transactions. Its row has the rest:
 
 - **Edit**: rename it everywhere, or change its date, currencies or budget setting.
 - **Reconcile**: enter a statement's date and balance, tick the pending transactions it shows, and

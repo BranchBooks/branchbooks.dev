@@ -21,7 +21,7 @@ Windows, 64-bit. An Android app is planned.
    - **The sample ledger**, to look around with made-up figures.
    - **A clone** of a book already on a git host, over HTTPS with a token.
    - **A GnuCash file**, with its accounts and full history. See [Importing from GnuCash](gnucash).
-3. On **Accounts**, choose **Add account** for each bank account and card, with today's balance. See
+3. On **Accounts**, choose **Add an account or category** for each bank account and card, with today's balance. See
    [Accounts](accounts).
 4. Start assigning money on **Budget**.
 
@@ -30,6 +30,7 @@ Windows, 64-bit. An Android app is planned.
 - [Accounts](accounts) covers adding accounts and categories, and starting balances.
 - [Budgeting](budgeting) explains envelopes, Unassigned, overspending and credit cards.
 - [Targets](targets) covers monthly amounts and savings goals.
+- [Loans](loans) tracks mortgages and other loans: payments split into interest and principal, and payoff.
 - [Scenarios](scenarios) are what-if copies of your book, on git branches.
 - [Sync](sync) keeps a book the same across devices through a git host.
 - [The ledger format](ledger-format) shows what BranchBooks writes into your files.

@@ -3,47 +3,84 @@ title: The ledger format
 weight: 7
 ---
 
-Books are [Beancount](https://beancount.github.io/) text files, so they stay readable in any text editor
-and open in Beancount and Fava. Every fixture in BranchBooks' tests is checked against real Beancount.
+Books are plain text in BranchBooks' own format, `.branchbooks`: blocks of named fields that explain themselves,
+in any text editor. The full description is
+[FORMAT.md](https://gitlab.com/branchbooks/branchbooks/-/blob/main/docs/FORMAT.md) in the repository.
 
 ## Files
 
-`main.beancount` holds the options and the account opens and closes. Transactions go in one file per
-year, such as `2026.beancount`, included from `main.beancount`.
+A book is a folder, and a git repository:
 
-## Budget flags
+- `book.branchbooks` holds the `book` block (the book's currency) and one `account` block per account.
+- One file per year, such as `2026.branchbooks`, holds that year's transactions, budget entries and loan terms.
 
-Whether an account is on budget is metadata on its `open`:
+## Accounts and budget settings
 
-```beancount
-2026-10-01 open Assets:Checking USD
-  budget: "on"            ; or "off" (assets and liabilities)
-2026-10-01 open Expenses:Tax:Federal USD
-  budget: "excluded"      ; categories with no flag are budgeted
-2026-10-01 open Expenses:Food
-  budget: "placeholder"   ; only groups its sub-accounts
+```
+account Assets:Checking
+  opened: 2026-10-01
+  currencies: USD
+  budget: on
+
+account Expenses:Tax:Federal
+  opened: 2026-10-01
+  budget: excluded
+
+account Expenses:Food
+  opened: 2026-10-01
+  budget: placeholder
 ```
 
-## Envelope entries and targets
+`budget` is `on` or `off` for accounts, `excluded` for categories that never use an envelope, and `placeholder` for
+a parent that only groups its sub-accounts. A category with no setting is budgeted. Names may hold spaces, such as
+`Liabilities:Chase Visa`.
 
-Assignments, moves and targets are Beancount `custom` entries:
+## Transactions
 
-```beancount
-2026-10-01 custom "envelope-assign" Expenses:Food:Groceries 600.00 USD
-2026-10-10 custom "envelope-move" Expenses:Housing:Rent Expenses:Food:Groceries 20.00 USD
-2026-01-01 custom "target" Expenses:Housing:Rent 1400.00 USD
-  recurrence: "monthly"
-2026-01-01 custom "target" Expenses:Savings:CarFund 6000.00 USD
+```
+txn 7Q2M4K9XHD
+  date: 2026-01-15
+  payee: Employer
+  note: Paycheck
+  post -2000.00 USD Income:Salary
+  post  2000.00 USD Assets:Checking
+```
+
+Every dated entry has a random id after its keyword, so two devices adding entries on the same day rarely touch the
+same lines, and a sync can merge them entry by entry.
+
+## Budget entries
+
+Assignments, moves, targets and loan terms are entries of their own:
+
+```
+assign 5D1R7TXK2M
+  date: 2026-10-01
+  envelope: Expenses:Food:Groceries
+  amount: 600.00 USD
+
+target 8WQ4C6T1PB
+  date: 2026-01-01
+  category: Expenses:Savings:CarFund
+  amount: 6000.00 USD
   due: 2026-06-01
 ```
 
+See [Loans](loans) for the `loan` block.
+
 ## Every change is a commit
 
-Each change you make is one small edit to the text and one git commit, so a book's history shows what
-changed and when. Nothing outside the edited lines changes.
+Each change you make is one small edit to the text and one git commit, so a book's history shows what changed and
+when. Nothing outside the edited entries changes.
 
-## Not supported yet
+## Format versions
 
-Some Beancount features are reported as errors, never miscounted: `pad`, costs and prices on postings,
-`pushtag` and `pushmeta`. Plugins are not run. Foreign currency budgeting and bank connections are not
-built yet.
+The `book` block names the format version. A book that holds loan terms is version 2; others stay at 1. An app too
+old for a book's version opens it read-only and says which version of BranchBooks it needs, instead of misreading
+it.
+
+## Coming from Beancount
+
+Beancount files come in through an import (**Files**, or a [GnuCash](gnucash) file), which writes them in this
+format. Some Beancount syntax isn't read yet, such as `pad`, costs and prices on postings, and `pushtag`; the
+import reports it as an error and never miscounts.
